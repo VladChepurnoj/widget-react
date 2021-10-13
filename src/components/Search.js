@@ -1,7 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const Search = () => {
   const [term, setTerm] = useState("");
+
+  useEffect(() => {
+    (async () => {
+      await axios.get("sdf").then((res) => {
+        console.log(res.data);
+      });
+    })();
+  }, [term]);
 
   return (
     <div>
